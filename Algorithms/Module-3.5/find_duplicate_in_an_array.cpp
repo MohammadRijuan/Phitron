@@ -47,7 +47,8 @@ void merge_sort(vector<int> &nums)
 	nums = sort(nums, 0, nums.size() - 1);
 }
 
-int findDuplicate(vector<int> &arr, int n){
+int findDuplicate(vector<int> &arr, int n)
+{
 	merge_sort(arr);
 
 	for(int i = 1; i < n; i++)
