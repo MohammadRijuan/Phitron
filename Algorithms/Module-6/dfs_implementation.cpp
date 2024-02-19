@@ -13,7 +13,7 @@ void dfs(int u)
 
     for(int v : adj[u])
     {
-        if(visited[u]==true) continue; //mane ata te aghe duke gele onno ta continur korbe
+        if(visited[v]==true) continue; //mane ata te aghe duke gele onno ta continur korbe
 
         dfs(v);
     }
@@ -34,7 +34,7 @@ int main()
     cout<<"visiting array\n";
     for (int i = 1; i <= n; i++)
     {
-        cout<<" Node"<<i<<":"<<visited[i];
+        cout<<"Node"<<i<<":"<<visited[i]<<endl;
     }
     
     
