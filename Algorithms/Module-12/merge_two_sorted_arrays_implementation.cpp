@@ -39,21 +39,6 @@ void merge(int a[],int l, int m, int r)
         }
         curr++;
     }
-    
-
-    while(i < leftSize)
-    {
-        a[curr]=L[i];
-        i++;
-        curr++;
-    }
-    while(j < rightSize)
-    {
-        a[curr]=R[j];
-        j++;
-        curr++;
-    }
-}
 int main()
 {
     int n;
