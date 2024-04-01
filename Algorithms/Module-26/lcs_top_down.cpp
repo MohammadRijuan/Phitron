@@ -32,6 +32,8 @@ int main()
     string a,b;
     cin>>a>>b;
 
+    //memset (dp,-1,sizeof (dp)); //same as dp[i][j]=-1
+
     for (int i = 0; i <=a.size (); i++)
     {
         for (int j = 0; j <=b.size (); j++)
