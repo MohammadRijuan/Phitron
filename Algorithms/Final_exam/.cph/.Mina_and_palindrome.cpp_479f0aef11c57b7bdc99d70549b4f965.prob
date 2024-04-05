@@ -1,0 +1,1 @@
+{"name":"Local: Mina_and_palindrome","url":"f:\\Batch 3\\Algorithms\\Final_exam\\Mina_and_palindrome.cpp","tests":[{"id":1712298791135,"input":"5\nmadam\nmcadam\nmadcam\nmcaedam\nmacdarm","output":"0\n1\n1\n2\n2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Batch 3\\Algorithms\\Final_exam\\Mina_and_palindrome.cpp","group":"local","local":true}
