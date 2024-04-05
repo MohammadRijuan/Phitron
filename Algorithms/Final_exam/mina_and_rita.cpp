@@ -7,12 +7,12 @@ int main()
 
     while (t--)
     {
-        string a;
-        cin>>a;
+        string a,b;
+        cin>>a>>b;
     
-        string b=a;
+        //string b=a;
     
-        reverse (b.begin (),b.end ());
+        //reverse (b.begin (),b.end ());
     
         int n=a.size (); 
         int m=b.size ();
@@ -45,7 +45,7 @@ int main()
             }
         }
     
-        cout<<a.size () -dp[n][m]<<endl;
+        cout<<n+m -dp[n][m]<<endl;
 
     }
      
