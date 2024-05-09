@@ -17,7 +17,7 @@ class calculator:
         result=num1/num2
         return result
     
-my_calculator=calculator( )
+my_calculator=calculator
 print(my_calculator)
 
 addition=my_calculator.add(5,7)
