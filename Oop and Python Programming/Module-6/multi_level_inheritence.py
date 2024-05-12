@@ -33,3 +33,14 @@ class ACBus(Bus):
 
 Marsa=ACBus("Marsa",21000000,35,"22 degree")
 print(Marsa)
+
+
+
+cnt = {}
+i = 1
+if i not in cnt:
+    cnt[i] = 1
+else:
+    cnt[i] += 1
+
+print(cnt)
