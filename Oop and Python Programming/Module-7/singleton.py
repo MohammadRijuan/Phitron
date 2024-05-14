@@ -30,4 +30,4 @@ print(third)
 
 
 
-# we can know more about design pattern,factory pattern etc
+# we can know more about design pattern,factory pattern ,architectural pattern etc...
