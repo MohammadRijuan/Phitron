@@ -63,11 +63,11 @@ class hall:
             return
         print(f'available seats for this movie id: {id}')
 
-        for row in self._seats[id]:
+        for col in self._seats[id]:
             print("{ ", end="")
-            for seat in row:
+            for seat in col:
                 if seat == 0:
-                    print("O", end=" ")
+                    print("0", end=" ")
                 else:
                     print("1", end=" ")
             print("}")
