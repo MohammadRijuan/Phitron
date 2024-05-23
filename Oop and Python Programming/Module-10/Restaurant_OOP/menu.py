@@ -52,13 +52,13 @@ class Menu:
 
     def show_menu(self):
         for pizza in self.pizzas:
-            print(f'name {pizza.name} and price is {pizza.price}')
+            print(f'name: {pizza.name} , price is-> {pizza.price}')
 
         for burgers in self.bugers:
-            print(f'name {burgers.name} and price is {burgers.price}')
+            print(f'name: {burgers.name} , price is-> {burgers.price}')
 
         for drinks in self.drinks:
-            print(f'name {drinks.name} and price is {drinks.price}')
+            print(f'name: {drinks.name} , price is-> {drinks.price}')
 
         
 
