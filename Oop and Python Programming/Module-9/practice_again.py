@@ -1,5 +1,22 @@
 from abc  import ABC,abstractmethod
 from datetime import datetime
+
+class Ride_sharing:
+    def __init__(self,company_name) -> None:
+        self.company_name=company_name
+        self.riders=[]
+        self.drivers=[]
+        self.rides=[]
+
+    def add_rider(self,rider):
+        self.riders.append(rider)
+
+    def add_drivers(self,driver):
+        self.drivers.append(driver)
+
+    def __repr__(self) -> str:
+        return f'company anme :{self.company_name} and riders :{len(self.riders)} and drivers : {len(self.drivers)}
+                
 class User(ABC):
     def __init__(self,name,email,nid) -> None:
         self.name=name
@@ -16,9 +33,30 @@ class Rider(User):
         super().__init__(name, email, nid)        
         self.current_location=current_location
         self.wallet=initial_amount
+        self.cur_ride=None
 
     def display_profile(self):
         print(f'rider with name : {self.name} and email : {self.email}')
+
+    def load_cash(self,amount):
+        if amount > 0:
+            self.wallet+=amount
+    
+    def update_location(self,current_location):
+        self.current_location=current_location
+
+
+    def request_ride(self,rider_sharing,current_location,destination):
+        if not self.cur_ride:
+            ride_request=Ride_Request(self,current_location,destination)
+            ride_matcher=Ride_matching(rider_sharing.drivers)
+            ride=ride_matcher.find_driver(ride_request)
+            print('got a ride',ride)
+            self.cur_ride=ride
+    
+    def show_cur_ride(self):
+        print(self.cur_ride)
+
 
 class Driver(User):
     def __init__(self, name, email, nid,current_location) -> None:
@@ -70,6 +108,39 @@ class Ride_matching:
             ride=Ride(Ride_Request.Rider.current_location,Ride_Request.Rider.end_location)
             driver.accept_ride(ride)
             return ride
+class Vehicle(ABC):
 
+    speed={ 'car': 50,
+             'Bike':70
+    }
+    def __init__(self,license_plate,vehicle_type,rate) -> None:
+        self.license_plate=license_plate
+        self.vehicle_type=vehicle_type
+        self.rate=rate
+        self.status='Available'
+    
+    @abstractmethod
+    def start_drive(self):
+        pass
+
+class car(Vehicle):
+    def __init__(self, license_plate, vehicle_type, rate) -> None:
+        super().__init__(license_plate, vehicle_type, rate)
+        
+
+    def start_drive(self):
+        self.status='unavailble'
+
+class Bike(Vehicle):
+    def __init__(self, license_plate, vehicle_type, rate) -> None:
+        super().__init__(license_plate, vehicle_type, rate)
+
+    def start_drive(self):
+        self.status='available'
+
+Ride_sharing=
+
+
+        
         
         
