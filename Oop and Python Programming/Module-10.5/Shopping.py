@@ -6,10 +6,10 @@ class Shopping:
     
     
     def add_user(self,email,password,user_type):
-        for user in self.users:
-            if user['email']==email:
-                print(f'this {email} id already exists')
-                return
+        # for user in self.users:
+        #     if user['email']==email:
+        #         print(f'this {email} id already exists')
+        #         return
         
         user={'email':email,'password':password,'type':user_type}
         self.users.append(user)
