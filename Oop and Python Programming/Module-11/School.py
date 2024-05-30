@@ -1,11 +1,11 @@
 class School:
 
     def __init__(self, name, address) -> None:
-        self.teachers = {}
         self.name = name
         self.address = address
         # composition
         self.classrooms = {}
+        self.teachers = {}
 
     def add_classroom(self, classroom):
         self.classrooms[classroom.name] = classroom

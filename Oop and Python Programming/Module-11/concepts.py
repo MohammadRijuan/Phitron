@@ -5,9 +5,9 @@
 ------------------------
 School system development
 
-1.studenht management
+1.student management
 2.teacher management
-3cafeteria
+3.cafeteria
 4.sports management
 5.club management
 6.event management
