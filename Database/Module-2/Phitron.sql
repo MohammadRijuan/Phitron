@@ -1,3 +1,4 @@
+CREATE Database Phitron;
 
 Use Phitron;
 
