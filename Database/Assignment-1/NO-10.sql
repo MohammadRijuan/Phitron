@@ -11,7 +11,7 @@ CREATE table  EMPLOYEE
 
 INSERT INTO EMPLOYEE
 (EMPLOYEE_ID,FIRST_NAME,LAST_NAME,AGE,DEPARTMENT)  VALUES (1,'JOHN','DOE',28,'SALES'),
-														  (2,'JANE','SMITH',32,'MARKETING'),
+						          (2,'JANE','SMITH',32,'MARKETING'),
                                                           (3,'MICHAEL','JHONSON',35,'FINANCE'),
                                                           (4,'SARAH','BROWN',30,'HR'),
                                                           (5,'WILLIAM','DAVIS',25,'ENGINEERING'),
