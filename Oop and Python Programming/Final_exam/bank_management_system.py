@@ -150,6 +150,7 @@ class Admin(Account_holder):
                 Account_holder.Accounts.remove(acc)
 
                 print('Deleted the account successfully')
+                break
 
             else:
                 print('There is no any account with this name')
@@ -253,7 +254,7 @@ while(True):
             ## we can do it with password instead of using email 
             email=input('enter ur email : ')
             
-            if name=='admin' and email=='admin':
+            if name=='admin' and email=='admin@gmail.com':
                 CurrentUser=admin
 
             else:
@@ -336,7 +337,7 @@ while(True):
                 CurrentUser.create_an_account(name,email,address,phone,acc_type)
 
             elif op==2:
-                name=input('Enter the name')
+                name=input('Enter the name : ')
                 sure=input('Are u sure (yes/no) :')
                 if sure=='yes':
                     CurrentUser.delete_a_user(name)
