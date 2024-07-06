@@ -156,7 +156,7 @@ class Admin(Account_holder):
                 print('There is no any account with this name')
 
     def see_all_user(self):
-        print('Account no       Name        Email      Account type')
+        print('Account no       Name        Email               Account type')
         for acc in Account_holder.Accounts:
             if isinstance (acc,Users):
                 
