@@ -1,0 +1,87 @@
+/* this is ecternal css */
+
+body{
+    background-color: whitesmoke;
+}
+.title {
+    color :rgb(0, 255, 179);
+    font-size : 60px;
+    font-weight: 100;
+    font-style: italic; /* bold too */
+    text-align: center; /* left ,right as well*/
+    background: linear-gradient(45deg,red,green); /* to top,to bottom as well*/
+}
+.description {
+    color : blue;
+    line-height: 1.5m;
+}
+/* we have to call id by using # what m doing h2 */
+#test {
+    color :green
+}
+/* If  we call through attribute name then it will take the last one as input always...so its better to call through class */
+p {
+    color: gold
+}
+p {
+    color : yellowgreen
+}
+/* box model */
+.box {
+    width: 300px;
+    height: 300px;
+    /* border: 5px,dotted,gray; */
+    padding: 30px;
+    /* margin: 100px; */
+    margin-top: 70px;
+    margin-left: 50px;
+    background-color: rgb(197, 196, 255);
+    box-shadow: 40px;
+    
+}
+.test{
+    padding: 50;
+    background-color: aquamarine;
+    width: 50%;
+    margin: auto;
+    /* text-align: left; */
+}
+/* for color we cxan use color picker */
+.child{
+    padding: 20px;
+    background-color:red;
+    width: 70%;
+    margin: left;
+    text-align: left;
+}
+/* 2ta div eksth in line korbo */
+
+
+.first{
+    width: 200px;
+    height: 150px;
+    background-color: blueviolet;
+    display: float;
+    float: left;
+}
+.second{
+    width: 200px;
+    height: 150px;
+    background-color: rgb(147, 226, 43);
+    display: float; /* website responsive er ketre float avoid korbo */
+    float: left;
+    
+}
+/* .container{
+    display: float;
+} */
+
+/* another method of making div block in line throught using flex...there will need parent div */
+.boxx{
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+}
+
+
+
