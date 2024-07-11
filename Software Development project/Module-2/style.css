@@ -81,7 +81,50 @@ p {
     width: 200px;
     height: 150px;
     border: 1px solid black;
+    margin: 5px;
+    font-size: 25px;
+}
+.contain{
+    display: flex;
+    justify-content: center; /* space around,space between, space evenly */
+    gap: 10px;
+    flex-direction: row-reverse;
+    height: 100vh; /* 100vh dewa mane full screen jure ami thakbo */
+    align-items: center;
+    flex-wrap: wrap; /* its important to show ur product properly in any device */
 }
 
+.box1{
+    background-color:blue ;
+    position :absolute; /* emnite box postion static obostay thake...jkn absolute dibo tkn ekta arektar upor overlap hye jai..jar karone box1 deka jaina */
+    z-index: -1;
+}
+.box2{
+    background-color: yellow ;
+    position: relative;
+    margin-top: 20px;
+    /* position: fixed; */
+}
+.box3{
+    background-color:blueviolet ;
+    margin-top: 20px;
+}
 
+/* flag cs */
+.green{
+    width: 450px;
+    background-color: green;
+    height: 250px;
+    margin: 50px;
+    position: relative;
+}
+.red{
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 60px;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
 
