@@ -8,22 +8,23 @@
 }
 
 .sect{
-    background: linear-gradient(135deg, #F8DBF7, #8A95FA);
-    height: 80%;
+    background: linear-gradient(130deg, #F8DBF7, #8A95FA);
+    height: 85%;
 }
 
 .text{
     margin: auto;
 }
+
 h1{
-    font-size: 96px;
+    font-size: 95px;
    font-weight: 400;
    text-align: left;
 }
 
 .bttn{
     background: #171495;
-    color: white;
+    color: whitesmoke;
     padding: 10px 15px;
   
     
@@ -37,40 +38,3 @@ h1{
    
 }
 
-
-.sect-2{
-    background: linear-gradient(135deg, #F8DBF7, #8A95FA);
-    height: 100vh;
-}
-
-
-.rowss{
-    width: 100%;
-  }
-  
-  .banner {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .left, .right-column {
-      flex: 1;
-    }
-    
-    @media (max-width: 768px) {
-      .banner {
-          flex-direction: column;
-      }
-    }
-
-    .box1{
-        padding: 10px;
-        margin: 30px;
-      }
-    
-      @media (min-width: 1200px) { 
-        .category-item {
-            width: 60%;
-    
-        }
-    }
