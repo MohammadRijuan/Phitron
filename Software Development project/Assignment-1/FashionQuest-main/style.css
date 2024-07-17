@@ -1,0 +1,43 @@
+.navbar{
+    background-color: navy;
+    
+}
+
+.navbar-brand{
+    justify-content: right;
+}
+
+.sect{
+    background: linear-gradient(135deg, #F8DBF7, #8A95FA);
+    height: 85%;
+}
+
+.text{
+    margin: auto;
+}
+
+h1{
+    font-size: 96px;
+   font-weight: 400;
+   text-align: left;
+}
+
+.bttn{
+    background: #171495;
+    color: whitesmoke;
+    padding: 10px 15px;
+  
+    
+}
+
+.carousel-item{
+    padding: 30px 50px;
+}
+
+.card-container{
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+   
+}
