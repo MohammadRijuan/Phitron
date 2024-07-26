@@ -54,6 +54,42 @@ console.log(testdiv[0].childNodes[1])
 // to get parent node from child node
 console.log(testdiv[0].childNodes[1].parentNode.parentNode.parentNode)
 
-// 
+// how to create element using js and append ant text or file bla bla
+
+// var newdiv=document.getElementById("newdiv")
+// var p=document.createElement("p")
+// p.innerText="notun ami";
+// newdiv.appendChild(p)
+
+
+function createel(){
+    var p=document.createElement("p")
+    p.innerText="notun ami";
+    newdiv.appendChild(p)
+}
+
+createel()
+
+// create add eventlistener
+
+document.getElementById("submit-btn").addEventListener("click",function(e)
+{
+    console.log("yes boss")
+    // createel()
+    var inputvalue=document.getElementById("input").value;
+    console.log(inputvalue)
+});
+
+// on change event
+
+document.getElementById("input").addEventListener("blur",inputChange)
+
+function inputchange(e){
+    console.log("hellp");
+};
+
+// document.getElementById("input").addEventListener("blur",function (e){
+//     console.log(e.target.value);
+// });
 
 
