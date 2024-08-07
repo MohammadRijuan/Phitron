@@ -1,17 +1,20 @@
 const LoadAllCategories = async () => {
-    try {
+    try 
+    {
         const response = await fetch("https://openapi.programming-hero.com/api/videos/categories");
         const items = await response.json();
         const categories = items.data;
         DisplayAllCategories(categories);
-    } catch (error) {
-        console.error('Error loading categories:', error);
+    } 
+    catch (error) 
+    {
+        console.error(error);
     }
 };
 
 const DisplayAllCategories = (categories) => {
     const CategoriesContainer = document.getElementById("category-container");
-    CategoriesContainer.textContent = ""; // Clear existing content
+    CategoriesContainer.textContent = ""; // Clean up existing content
 
     categories.forEach((SingleCategory, Index) => {
         const card = document.createElement('div');
@@ -19,7 +22,8 @@ const DisplayAllCategories = (categories) => {
         btn.textContent = SingleCategory.category;
         btn.classList.add('category-btn');
 
-        if (Index === 0) {
+        if (Index == 0) 
+        {
             btn.classList.add("active");
         }
 
@@ -40,13 +44,16 @@ const DisplayAllCategories = (categories) => {
 let video = [];
 
 const LoadSingleCategories = async (categoryId) => {
-    try {
+    try 
+    {
         const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
         const items = await response.json();
         video = items.data;
         DisplaySingleCategories();
-    } catch (error) {
-        console.error('Error loading single category:', error);
+    } 
+    catch (error) 
+    {
+        console.error(error);
     }
 };
 
@@ -56,8 +63,11 @@ const Views = (value) => {
     let nums = value.split('K')[0];
     let thousands = parseInt(nums.split(".")[0]) * 1000;
     let hundreds = parseInt(nums.split(".")[1]) * 100;
+    
     if (!hundreds) hundreds = 0;
+
     let Views = thousands + hundreds;
+
     return Views;
 };
 
@@ -67,21 +77,29 @@ const DisplaySingleCategories = () => {
 
     const FoundData = document.getElementById("err-msg");
 
-    if (video.length === 0) {
+    if (video.length == 0) 
+    {
         FoundData.classList.remove("hidden");
-    } else {
+    }
+    else 
+    {
         FoundData.classList.add("hidden");
     }
 
-    if (Sorted) {
-        let SortedItems = video.filter(item => item.others && item.others.views) // Ensure views exist
-            .sort((x, y) => {
+    if (Sorted) 
+        {
+        let SortedItems = video.filter(items => items.others && items.others.views) // Ensur views exist
+            .sort((x, y) => 
+                {
                 let full = Views(x.others.views);
                 let Secnd = Views(y.others.views);
 
-                if (full > Secnd) {
+                if (full > Secnd) 
+                {
                     return 1;
-                } else {
+                } 
+                else 
+                {
                     return -1;
                 }
             });
@@ -90,7 +108,7 @@ const DisplaySingleCategories = () => {
     }
 
     video.forEach((SingleCategory) => {
-        console.log('Single category item:', SingleCategory); // Debugging log
+        // console.log(SingleCategory);
 
         const TotalSecnd = SingleCategory?.others?.posted_date;
         const Hour = Math.floor(TotalSecnd / 3600);
@@ -100,31 +118,39 @@ const DisplaySingleCategories = () => {
 
         const Verified = SingleCategory.authors && SingleCategory.authors[0]?.verified ? '<img class="verify-icon w-5" src="./verify-icon.jpg">' : '';
 
-        // const thumbnailUrl = SingleCategory.thumbnail || 'default-thumbnail.jpg'; // Use a default image if the thumbnail is missing
+        
 
         card.innerHTML = `
             <div class="card h-fit rounded-lg">
+                
                 <!-- thumbnail -->
-                <figure class="w-full min-h-[100px] h-full sm:h-[200px] relative">
+
+                <div class="w-full min-h-[100px] h-full sm:h-[200px] relative">
                     <img class="thumbnail h-full w-full rounded-md" src="${SingleCategory.thumbnail}" alt="${SingleCategory.title}">
+                    
                     <div class="absolute bottom-3 right-3 text-white text-xs bg-[#171717] p-0.5 rounded-md">
                         <span>${Hour ? Hour + "hrs" : ""} ${minit ? minit + "min ago" : ""}</span>
                     </div>
-                </figure>
+                </div>
+
                 <!-- information -->
+
                 <div class=" flex card-body flex-row gap-x-5 py-3">
-                <div>
-                    <img src=" ${SingleCategory.authors[0].profile_picture}" alt="${SingleCategory.authors[0].profile_name}"
-                    class="w-10 h-10 rounded-full">
-               </div>
-               <div>
-               <h3 class="text-xl font-semibold">${SingleCategory.title}</h3>
-               <div class="flex items-center gap-x-2">
-               <h4 class="text-gray-500 text-base">${SingleCategory.authors[0].profile_name}</h4><span>${Verified}</span>
-            </div>
-          <h4 class="text-gray-400">${SingleCategory.others.views} views</h4>
-        </div>
-      </div>
+                    <div>
+                        <img src=" ${SingleCategory.authors[0].profile_picture}" alt="${SingleCategory.authors[0].profile_name}"
+                        class="w-10 h-10 rounded-full">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold">${SingleCategory.title}</h3>
+
+                        <div class="flex items-center gap-x-2">
+                            <h4 class="text-gray-700 text-base">${SingleCategory.authors[0].profile_name}</h4><span>${Verified}</span>
+                        </div>
+
+                        <h4 class="text-gray-500">${SingleCategory.others.views} views</h4>
+                
+                    </div>
+                </div>
             </div>
         `;
         SingleCategoryContainer.appendChild(card);
