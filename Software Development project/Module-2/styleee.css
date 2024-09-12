@@ -1,0 +1,130 @@
+body{
+    margin: 0px;
+    padding: 0px;
+
+}
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #0190B0
+}
+
+.logo{
+    width :80px;
+    height: 80px;
+    
+}
+.menus-container{
+    display: flex;
+    list-style: None;
+    gap: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.doctor-img{
+    width: 120%;
+}
+.banner-container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    align-items: center;
+}
+
+.title{
+    font-size: 66px;
+    font-weight: bold;
+    color: #0190B0 ;
+    text-align: center;
+}
+
+.description{
+    font-size: 22px;
+    /* color:#0190B0; */
+}
+button{
+    padding: 15px 25px;
+    border: none;
+    font-size: 18px;
+    color: aliceblue;
+}
+
+.app-btn{
+    background-color: #0190B0;
+}
+
+.doc-btn{
+    background-color: #01b08ac4;
+}
+
+.service-card{
+    width: 300px;
+    height: 350px;
+    box-shadow: 8px 8px 16px grey;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+.service-img{
+    width: 150px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact-container{
+    text-align: center;
+}
+
+.input-box{
+    padding: 15px 30px;
+    margin : 10px;
+}
+
+.submit-btn{
+    padding: 10px 20px;
+    width: 35%;
+    margin: 20px;
+    background-color: #0190B0;
+    color: aliceblue;
+    border: none;
+    font-size: 22px;
+}
+
+.descript{
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+.footer-container{
+    display: flex;
+
+    list-style: None;
+    gap: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #0190B0 ;
+    padding-bottom: 20px;
+}
+.copyright{
+    padding: 50px 50px;
+    text-align: center;
+    color: aliceblue;
+    background-color:#0190B0  ;
+}
+
+
+hr {
+    
+    background-color: #0190B0 ; /* Adjust color and thickness as needed */ 
+}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="padding: 20px; ">
+
+    {% if task %}
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        {% for data in task %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+
+                <h5 class="card-title">{{data.task_title}}</h5>
+                <p class="card-text">{{data.task_description}}</p>
+                <p class="text-primary">{{data.task_assign_date}}</p>
+
+                {% for category in data.categories.all %}
+                    <button class="btn btn-primary" style="margin:5px;">{{category.name}}</button>
+                {% endfor %}
+
+                <div style="margin:5px;">
+
+                    {% if task.is_completed %}
+                    <button class="btn btn-success" >Completed</button>
+                    {% else %}
+
+                    <a href="{% url 'edit_task' data.id  %}"><button class="btn btn-info">edit</button></a>
+                    <a href="{% url 'delete_task' data.id  %}"><button class="btn btn-danger">delete</button></a>
+                    {% endif %}
+                </div> 
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h2 style="display:flex; justify-content:center; margin-top:100px">There is no task !!!</h3>
+    {% endif %}
+</div>
+{% endblock content %}

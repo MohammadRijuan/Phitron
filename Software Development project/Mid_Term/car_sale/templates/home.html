@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+
+   <section class="carosol sec1 vh-100 align-content-center justify-content-center" >
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+
+
+        
+        <div class="carousel-item active">
+          <div class="row d-flex flex-wrap align-items-center">
+           
+            <div class="col-12 col-md-5 align-items-center d-flex justify-content-end">
+              <div style="width: 80%;">
+                <h1 class="h-100" style="font-weight: bold;">Tesla Model S</h1>
+                <p class="w-100 text-start">The Tesla Model S is a fully electric luxury sedan with impressive range and acceleration. Known for its sleek design, advanced autopilot features, and innovative technology, it redefines the driving experience.</p>
+                <h4 class="h-75">$120190</h4>
+                {% if request.user.is_authenticated %}
+                <form method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-primary">Buy Now</button>
+                </form>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-12 col-md-7">
+              <!-- Image -->
+              <img class="imgg mx-auto d-block w-75 py-3" src="{% static 'image1.jpg' %}" alt="Example Image" />
+            </div>
+          </div>
+        </div>
+
+       
+
+
+        
+          <div class="carousel-item ">
+            <div class="row d-flex flex-wrap align-items-center">
+              <div class="col-12 col-md-5 align-items-center d-flex   justify-content-end">
+                <div  style="width: 80%;">
+                  <h1 class="h-100" style="font-weight: bold;"> Toyota Corolla</h1>
+                  <p class="w-100 text-start">The Toyota Corolla is one of the best-selling cars globally, known for its reliability, fuel efficiency, and affordability. It offers a comfortable and practical driving experience, making it ideal for daily commuting. </p>
+                  <h2 class="h-75">$180000</h2>
+                  {% if request.user.is_authenticated %}
+                
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Buy Now</button>
+                    {% endif %}
+                </div>
+              </div>
+            
+              <div class="col-12 col-md-7 ">
+                <!-- Image -->
+                <img class="imgg mx-auto d-block   w-75 py-3"   src="{% static 'image3.jpg' %}" alt="Example Image" />
+                
+              </div>
+          </div>
+          </div>
+   
+
+
+
+        
+          <div class="carousel-item ">
+            <div class="row d-flex align-items-center">
+              <div class="col-12 col-md-5 col align-items-center d-flex   justify-content-end">
+                <div class="  " style="width: 80%;">
+                  <h1 class="h-100" style="font-weight: bold;">BMW 3 Series  </h1>
+                  <p class="w-100 text-start">The BMW 3 Series is a compact luxury sedan known for its sporty handling and premium interior. With a balance of performance and comfort, it is a favorite among car enthusiasts and professionals alike.</p>
+                  <h2 class="h-75">$12199</h2>
+                  {% if request.user.is_authenticated %}
+                
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Buy Now</button>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="col-12 col-md-7 ">
+                <!-- Image -->
+                <img class="imgg mx-auto d-block   w-75 py-3"   src="{% static 'image2.jpg' %}" alt="Example Image" />
+                
+              </div>
+          </div>
+        </div>
+       
+
+
+        <button class="carousel-control-prev text-black" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon text-black" aria-hidden="true"></span>
+          <span class="visually-hidden text-black">Previous</span>
+      </button>
+      <button class="carousel-control-next text-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+          <span class="visually-hidden text-dark ">Next</span>
+      </button>
+      
+      </div>
+  </section>
+
+
+  <!-- .........brand name................. -->
+
+<div class="vh-100">
+  <section class="">
+    <h5 class="p-4 ">Browse By Category</h5>
+    <style>
+      .mx-container {
+        width: 100%;
+        max-width: 1680px;
+        margin: 0 auto;
+      }
+      
+      @media (max-width: 768px) {
+        .mx-container {
+          max-width: 90%;
+        }
+      }
+      
+      .mb-custom {
+        margin-bottom: 2rem;
+      }
+      
+      .box {
+        text-align: center;
+        border: 1px solid #ccc;
+        transition: box-shadow 0.2s ease;
+        border-radius: 5px;
+        height: 50px;
+        width: 150px;
+        padding: 0.25rem;
+        background-color: white;
+      }
+      
+      .box:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .bx {
+        padding-top: 8px;
+      }
+    </style>
+
+    <div class="container mx-container bg-body-secondary pt-2 pb-1">
+        <div class="d-flex flex-wrap justify-content-center">
+          {% for brand in categories %}
+            <div class="m-2">
+              <div class="box text-center">
+                <a href="{% url 'category_wise_view' brand.slug %}" class="text-decoration-none text-dark"><h5 class="bx">{{ brand.name }}</h5></a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+  <hr />
+  <!-- .........Car list................. -->
+
+  <section>
+
+  <style>
+    .card{
+      transition: all 0.2s ease-in-out;
+    }
+     .card:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+  </style>
+
+    <h3 class="p-4">Car list found : {{ data|length }}</h3>
+
+    <div class="d-flex flex-wrap justify-content-center">
+      
+        {% for car in data %}
+
+        <div class=" card m-3 shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          
+            {% if car.image %}
+            <img src="{{ car.image.url }}" alt="{{ car.name }}" />
+          {% else %}
+            <img src="{% static 'image1.jpg' %}" alt="Image" />
+          {% endif %}
+          <div class="card-body">
+            <a href="{% url 'car_detail' car.id %}" class="text-decoration-none text-dark"><h5 class="card-title">{{ car.name }}</h5></a>
+            <p class="card-text">{{ car.description|truncatechars:40 }}</p>
+            <p class="card-text">Available: {{ car.quantity }}</p>
+            <p class="card-text">Price: ${{ car.price }}</p>
+            <div>
+              <ul class="text-start">
+                {% for category in car.category.all %}
+                  <span class="card-text bg-secondary-subtle rounded-2 m-1 w-50 ">{{ category.name }}</span>
+                {% endfor %}
+              </ul>
+            </div>
+            {% if request.user.is_authenticated %}
+            <form method="post" action="{% url 'purchase_car' car.id %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

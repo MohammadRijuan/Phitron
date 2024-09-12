@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<body>
+    <h1>Practicing templates</h1>
+    <h3>School started on {{School_start|date:"D d M Y"}} </h3>
+    <ul>
+        <li>
+            Course {{data.1.name}} taken: {{data.1.course|join:" , "}}
+        </li>
+        <li>
+            Course {{data.0.name}} taken: {{data.0.course|join:" , "|default:"No course"}}
+        </li>
+
+        {% comment %} there is no data {% endcomment %}
+        <li>
+            Course {{data.5.name}} taken: {{data.5.course|join:" , "|default:"No course"}} 
+        </li>
+
+        <li>
+            Courses are: {{data.1.name|cut:" "}}
+        </li>
+        <li>
+            ID of {{data.2.name}} is 6 less than {{data.2.id|add:"1"}}
+        </li>
+        <li>
+            Last letter of {{data.1.name}} is {{data.1.name |last}}
+        </li>
+        <li>
+           capfirst apply on {{data.1.name|capfirst}} 
+        </li>
+        <li>
+            Courses {{data.1.name}} taken: {{data.1.course|join:", "|cut:","}}
+        </li>
+        <li>The First course taken by {{data.2.name}} is {{data.2.course|first}}</li>
+        <li>Number of course taken by {{data.0.name}} is {{data.0.course|length}}</li>
+        <li>Random name of a student : {{data|random}} </li>
+        <br>
+        
+        {% for i in data %}
+        <li>{{ i.name }}'s Courses:</li>
+        <ul>
+            <li>Courses are : {{i.course | linenumbers}}</li>
+        </ul>
+        
+        {% endfor %}
+         
+        <br/>
+        
+        <li>Numbers of words {{data.1.name}} are : {{data.1.name | wordcount }}</li>
+
+        <li>Course taken by {{data.0.name}} are: {{data.0.course|join:" "|truncatewords:3}}</li>
+    </ul>
+</body>
+</html>

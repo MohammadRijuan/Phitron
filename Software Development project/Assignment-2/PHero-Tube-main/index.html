@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH TUBE</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <header >
+        <!-- menu bar -->
+        <div class="flex justify-between gap-5 bg-gray-100 mx-auto px-4 py-4 items-center">
+            <img class="w-40" src="./logo.png" alt="">
+            <button onclick="SortByView()" id="SortByView" class="bg-gray-300 px-4 py-2 rounded-md">Sort BY View</button>
+            <button onclick="Blog()" id="Blog"  class="bg-red-400 px-4 py-2 text-white rounded-md">Blog</button>
+        </div>
+
+    </header>
+
+    <!-- category -->
+    <main class="mt-8">
+        <div id="category-container" class="flex flex-wrap gap-5 m-auto justify-center ">
+            <div class="flex gap-5 m-auto justify-center items-center text-center bg-gray-300">
+                
+            </div>
+    
+        </div>
+        
+        <!-- single category -->
+        <div id="single-category" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-3 mt-8 container mx-auto px-5">
+            <div class=" justify-items-center m-auto">
+
+            </div>
+
+        </div>
+
+        <!-- error option -->
+        
+    <div>
+        <div id="err-msg" class="text-center mt-8 hidden">
+          <img src="icon.png" alt="" class="w-42 mx-auto">
+          <h1 class="mt-4 text-lg font-bold">Oops!! Sorry,There is no content here</h1>
+        </div>
+    </div>
+    </main>
+    
+
+
+
+    <!-- script file -->
+     <script src="./project.js"></script>
+</body>
+</html>
+
+
+
+<!-- live link -->
+<!-- https://66b3a87e0607c000a3bf3dfc--mellifluous-caramel-793836.netlify.app/  -->

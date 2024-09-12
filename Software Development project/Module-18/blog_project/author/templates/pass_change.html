@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<form  method='post' style="width :50% ; margin:auto">
+    <br/>
+    <h1 style="text-align:center">Change your password</h1>
+    <br/>
+    
+    {{form | crispy}}
+    {% csrf_token %}
+    <button class="btn btn-warning">Update</button>
+</form>
+
+{% comment %} {{form.as_p}} {% endcomment %}
+{% endblock  %}

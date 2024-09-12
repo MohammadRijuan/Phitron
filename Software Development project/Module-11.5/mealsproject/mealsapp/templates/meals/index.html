@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="d-flex flex-wrap justify-content-center">
+
+  {% for i in meals %}
+
+  <div class="card" style="width: 18rem; margin: 20px">
+    <img src="{{i.strMealThumb}}" class="card-img-top" alt="image" />
+    <div class="card-body">
+      <h5 class="card-title">{{i.strMeal}}</h5>
+      <p class="card-text">
+        Meals are regular occasions during the day when people eat food. Typically, meals are consumed at specific times and consist of a variety of foods.
+      </p>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}

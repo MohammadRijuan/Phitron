@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    
+</head>
+<body class="bg-gray-200">
+    <div class="container mx-auto p-4">
+        <div>
+            <h2 class="text-3xl font-bold mb-4 mt-4">Discuss The Scope of var, let, and const</h1>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">var</button>
+                <div class="collapse-content hidden mt-2">
+                    <ul>
+                        <li><b>Answer: </b> Variables declared with var are function-scoped. This means they are only accessible within the function they are declared in. If declared outside any function, they become global variables.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">let</button>
+                <div class="collapse-content hidden mt-2">
+                    <ul>
+                        <li><b>Answer: </b> let is a modern way to declare variables in JavaScript, introduced in ECMAScript 6 (ES6). It is preferred over var for several reasons due to its block-scoping and lack of hoisting issues.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">const</button>
+                <div class="collapse-content hidden mt-2">
+                    <ul>
+                        <li><b>Answer: </b> const is another modern way to declare variables in JavaScript, also introduced in ECMAScript 6 (ES6). It is used to declare variables that are meant to be constants, meaning their value should not be reassigned after their initial assignment.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold mb-4 mt-8">Tell us the use cases of null and undefined</h1>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">null</button>
+                <div class="collapse-content hidden mt-2">
+                    <ul>
+                        <li><b>Answer: </b> null is a special value in JavaScript that represents the intentional absence of any object value. It is used to explicitly indicate that a variable should have no value.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">undefined</button>
+                <div class="collapse-content hidden mt-2">
+                    <ul class="list-disc ml-5">
+                        <li><b>Answer: </b> undefined is a primitive value in JavaScript that represents the absence of a value or the uninitialized state of a variable. It is used by the JavaScript engine to indicate that a variable has been declared but not yet assigned a value.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold mb-4 mt-8">What do you mean by REST API?</h1>
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+                <button class="collapse-title font-bold text-lg w-full text-left">REST API</button>
+                <div class="collapse-content hidden mt-2">
+                    <p><b>Answer: </b>A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. REST APIs use HTTP requests to perform CRUD (Create, Read, Update, Delete) operations on resources.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        document.querySelectorAll('.collapse-title').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

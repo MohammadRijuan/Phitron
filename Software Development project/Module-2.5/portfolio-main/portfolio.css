@@ -1,0 +1,178 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(5, 6, 65);
+}
+.menus-container{
+    display: flex;
+    text-align: center;
+    margin-top: 2%;
+    gap: 30px;
+    list-style: none;
+}
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logo{
+    width: 40px;
+    height: 40px;
+    
+}
+.title{
+    color: aliceblue;
+}
+.btn{
+    padding: 5px 30px;
+    background-color: rgb(5, 6, 65);
+    color: aliceblue;
+}
+.banner-container{
+    display: flex;
+    margin :auto;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background: linear-gradient(170deg,rgb(5, 6, 65),rgb(58, 7, 82));
+}
+.img{
+    width: 100%;
+}
+
+.imagin{
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.imagine{
+    margin-top: 10px;
+    margin-right: 20px;
+    gap: 5px;
+}
+
+.a-btn{
+    background-color:rgb(239, 109, 88)
+    
+}
+
+.h4{
+    color: rgb(239, 109, 88);
+}
+.text{
+    color: black;
+    text-align: center;
+}
+.service-container{
+    align-items: center;
+    gap: 20px;
+
+}
+.service-card{
+    display: flex;
+    justify-content: space-around;
+    /* box-shadow: 8px 8px 16px grey; */
+    /* border-radius: 5px; */
+    /* text-align: center; */
+    margin-bottom: 50px;
+    
+}
+.image{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: space-around;
+    gap:10px;
+    text-align: center;
+ 
+}
+.imag{
+    margin-top: 10px;
+    width:60px;
+    height:30px;
+}
+
+    
+
+.services{
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background:linear-gradient(120deg,rgb(5, 6, 65),rgb(58, 7, 82))
+
+}
+.txt{
+    color: aliceblue;
+}
+
+.content-right{
+    margin-top: 40px;
+    margin-right: 20px;
+}
+.imge{
+    margin-top: 90px;
+    padding-top: 20px;
+    width: 80%;
+    
+}
+
+.contact-container{
+    
+    text-align: center;
+    background-color: rgb(240, 227, 236);
+}
+
+.input-box{
+    padding: 15px 30px;
+    margin : 10px;
+}
+
+.submit-btn{
+    padding: 10px 20px;
+    width: 20%;
+    margin: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 22px;
+}
+
+.descript{
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+.footer-container{
+    display: flex;
+
+    list-style: None;
+    gap: 20px;
+    font-size: 20px;
+    color: black;
+    background-color: rgb(240, 227, 236);
+    padding-bottom: 20px;
+}
+.copyright{
+    padding: 50px 50px;
+    text-align: center;
+    color: black;
+    background-color: rgb(240, 227, 236); 
+}
+.titl{
+    color: black;
+}
+
+
+

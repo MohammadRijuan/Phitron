@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% comment %} if we upoload a file image or anything else we have to use enctype="multipart/form-data" {% endcomment %}
+<form method="post" action="" style="width: 50%; height : 50px; margin:auto" class="pt-5" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% load crispy_forms_tags %}
+    {% comment %} as_p niche akare show korbe gap kore {% endcomment %}
+    {% comment %} {{form.as_p}} {% endcomment %}
+    {{form | crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock  %}
+
+
+
+{% comment %} we wil code in python and it will turn into a html {% endcomment %}

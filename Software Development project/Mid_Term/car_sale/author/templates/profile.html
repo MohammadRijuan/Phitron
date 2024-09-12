@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="m-2 p-3 mb-5  pt-5 " style="">
+    <main>
+      <div>
+          <h1>Welcome back {{user}}</h1>
+          <a style="" href="{% url "purchase_list" %}"><button class="btn btn-primary">Purchase List</button></a>
+          
+          <a style="" href="{% url "pass_change" %}"><button class="btn btn-danger">Change Password</button></a>
+         
+          <a href="{% url "edit_profile" %}"><button class="btn btn-info">Edit Profile</button></a>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+  <div class="card" style="width: 18rem;">
+      <div class="card-header">
+          Profile Details
+      </div>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Username : {{user.username}}</li>
+          <li class="list-group-item">Full Name: {{user.first_name}} {{user.last_name}}</li>
+          <li class="list-group-item">Email : {{user.email}}</li>
+      </ul>
+  </div>
+</div>
+
+      
+      
+      
+  </main>
+    
+  </div>
+
+{% endblock %}

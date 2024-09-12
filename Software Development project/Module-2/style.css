@@ -1,0 +1,130 @@
+/* this is ecternal css */
+
+body{
+    background-color: whitesmoke;
+}
+.title {
+    color :rgb(0, 255, 179);
+    font-size : 60px;
+    font-weight: 100;
+    font-style: italic; /* bold too */
+    text-align: center; /* left ,right as well*/
+    background: linear-gradient(45deg,red,green); /* to top,to bottom as well*/
+}
+.description {
+    color : blue;
+    line-height: 1.5m;
+}
+/* we have to call id by using # what m doing h2 */
+#test {
+    color :green
+}
+/* If  we call through attribute name then it will take the last one as input always...so its better to call through class */
+p {
+    color: gold
+}
+p {
+    color : yellowgreen
+}
+/* box model */
+.box {
+    width: 300px;
+    height: 300px;
+    /* border: 5px,dotted,gray; */
+    padding: 30px;
+    /* margin: 100px; */
+    margin-top: 70px;
+    margin-left: 50px;
+    background-color: rgb(197, 196, 255);
+    box-shadow: 40px;
+    
+}
+.test{
+    padding: 50;
+    background-color: aquamarine;
+    width: 50%;
+    margin: auto;
+    /* text-align: left; */
+}
+/* for color we cxan use color picker */
+.child{
+    padding: 20px;
+    background-color:red;
+    width: 70%;
+    margin: left;
+    text-align: left;
+}
+/* 2ta div eksth in line korbo */
+
+
+.first{
+    width: 200px;
+    height: 150px;
+    background-color: blueviolet;
+    display: float;
+    float: left;
+}
+.second{
+    width: 200px;
+    height: 150px;
+    background-color: rgb(147, 226, 43);
+    display: float; /* website responsive er ketre float avoid korbo */
+    float: left;
+    
+}
+/* .container{
+    display: float;
+} */
+
+/* another method of making div block in line throught using flex...there will need parent div */
+.boxx{
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 5px;
+    font-size: 25px;
+}
+.contain{
+    display: flex;
+    justify-content: center; /* space around,space between, space evenly */
+    gap: 10px;
+    flex-direction: row-reverse;
+    height: 100vh; /* 100vh dewa mane full screen jure ami thakbo */
+    align-items: center;
+    flex-wrap: wrap; /* its important to show ur product properly in any device */
+}
+
+.box1{
+    background-color:blue ;
+    position :absolute; /* emnite box postion static obostay thake...jkn absolute dibo tkn ekta arektar upor overlap hye jai..jar karone box1 deka jaina */
+    z-index: -1;
+}
+.box2{
+    background-color: yellow ;
+    position: relative;
+    margin-top: 20px;
+    /* position: fixed; */
+}
+.box3{
+    background-color:blueviolet ;
+    margin-top: 20px;
+}
+
+/* flag cs */
+.green{
+    width: 450px;
+    background-color: green;
+    height: 250px;
+    margin: 50px;
+    position: relative;
+}
+.red{
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 60px;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
+

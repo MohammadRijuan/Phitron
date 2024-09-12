@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% comment %} that is how to get data from backend {% endcomment %}
+    <h1>This is homepage</h1>
+    <h2>Author :{{author}}</h2>
+    <h2>Age :{{age}}</h2>
+    <h2>{{lst}}</h2>
+
+
+
+
+    {% comment %} conditional statement {% endcomment %}
+    {% if age >= 20%}
+        <h4>You will get driving license</h4>
+    {% elif age >= 10 and age <= 19 %}
+        <h4>You will not get driving license</h4>
+    {% else %}
+        <h4>You are child</h4>
+    {% endif %}
+
+    {{lst}}
+    {% comment %} template filtering {% endcomment %}
+    <h1>{{lst | join:" - "}}</h1>
+    <h1>{{birthday | join:" - "}}</h1>
+    <h1>{{val | default:"This is an empty"}}</h1>
+    <h1>{{val | length}}</h1>
+    <h1>{{"python is fun" | cut:" "}}</h1>
+    <h1>{{"python is fun...happy coding" | truncatechars:2 }}</h1>
+
+    {% comment %} for loop {% endcomment %}
+    {% for i in courses %}
+    <h3>{{i.id}} {{i.name}}</h3>
+    {% endfor %}
+</body>
+</html>
