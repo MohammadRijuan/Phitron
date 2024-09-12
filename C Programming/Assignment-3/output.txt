@@ -1,0 +1,3 @@
+main x er address - 0061FF1C
+fun x er address - 0061FF00
+main x er value - 50

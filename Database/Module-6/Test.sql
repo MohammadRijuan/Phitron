@@ -1,0 +1,25 @@
+USE practice;
+
+SELECT *
+FROM Student
+WHERE SALARY =(SELECT MAX(SALARY)
+               FROM STUDENT);
+               
+               
+SELECT *
+FROM STUDENT
+WHERE ID = (SELECT ID
+            FROM STUDENT
+            WHERE DEPARTMENT='ARTS');
+            
+SELECT AVG(SALARY)
+FROM STUDENT
+WHERE ID = (SELECT ID
+            FROM STUDENT
+            WHERE DEPARTMENT='ARTS');
+            
+SELECT COUNT(*)
+FROM STUDENT
+WHERE ID = (SELECT ID
+            FROM STUDENT
+            WHERE DEPARTMENT='ARTS');

@@ -1,0 +1,55 @@
+-- Make an ERD of School Attendance System and also write SQL Schema
+
+use practice;
+
+-- student table 
+CREATE TABLE STUDENTS
+(    
+      STU_ID INT PRIMARY KEY,
+      STU_NAME VARCHAR(50) NOT NULL,
+      STU_ROLL VARCHAR(5),
+      STU_ADDRESS VARCHAR(50) 
+);
+
+-- TEACHER TABLE
+CREATE TABLE TEACHERS
+(    
+      T_ID INT PRIMARY KEY,
+      T_NAME VARCHAR(50) NOT NULL,
+      T_SUB VARCHAR(50),
+      T_ADDRESS VARCHAR(50),
+      T_PHONE VARCHAR(50)
+);
+
+
+-- CLASS TABLE
+CREATE TABLE CLASSES
+(    
+      C_ID INT PRIMARY KEY,
+      SCHEDULE VARCHAR(50) NOT NULL,
+      SUBJECT VARCHAR(50),
+      ROOM_NUMBER VARCHAR(50) 
+);
+
+-- CLASS TEACHER TABLE
+CREATE TABLE CLASS_TEACHER
+(    
+      C_ID INT,
+      T_ID INT,
+      FOREIGN KEY(C_ID) references CLASSES(C_ID),
+      FOREIGN KEY(T_ID) references TEACHERS(T_ID),
+      PRIMARY KEY (C_ID,T_ID)
+);
+
+-- ATTENDANCE TABLE
+CREATE TABLE ATTENDANCE
+(    
+      STU_ID INT,
+      C_ID INT,
+      COUNT_ATTENDANCE VARCHAR (50),
+      DATE date,
+      FOREIGN KEY (STU_ID) references STUDENTS (STU_ID),
+      FOREIGN KEY (C_ID) references CLASSES (C_ID)
+      
+);
+
