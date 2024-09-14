@@ -4,9 +4,9 @@ from . views import DepositMoneyView,WhithdrawMoneyView,TransactionReportView,Lo
 
 urlpatterns = [
     path('deposit/',DepositMoneyView.as_view(),name='deposit_money'),
-    path('report/',TransactionReportView.as_view(),name='teansaction_report'),
+    path('report/',TransactionReportView.as_view(),name='transaction_report'),
     path('withdraw/',WhithdrawMoneyView.as_view(),name='withdraw_money'),
     path('loan_request/',LoanRequestView.as_view(),name='loan_request'),
     path('loans/',LoanListView.as_view(),name='loan_list'),
-    path('loan/<int:loan_id>/',PayLoanView.as_view(),name='pay_loan')
+    path('loan/<int:loan_id>/',PayLoanView.as_view(),name='loan_pay')
 ]

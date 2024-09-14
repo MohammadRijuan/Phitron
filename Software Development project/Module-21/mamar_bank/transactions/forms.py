@@ -14,11 +14,11 @@ class TransactionForm(forms.ModelForm):
         self.fields['transaction_type'].disabled = True # ei field disable thakbe r user teke hide kora thakbe
         self.fields['transaction_type'].widget = forms.HiddenInput()
 
-        def save(self,commit=True):
-            self.instance.account = self.account
-            self.instance.balance_after_transaction = self.account.balance 
+    def save(self,commit=True):
+        self.instance.account = self.account
+        self.instance.balance_after_transaction = self.account.balance 
 
-            return super().save()
+        return super().save()
         
 
 class DepositForm(TransactionForm):
@@ -30,6 +30,7 @@ class DepositForm(TransactionForm):
             raise forms.ValidationError(
                 f'You need to deposit at least {min_deposit_amount}$'
             )
+        return amount
         
 
 class WithdrawForm(TransactionForm):
@@ -46,9 +47,15 @@ class WithdrawForm(TransactionForm):
                 f'You Can withdraw at least {min_withdraw_amount}$'
             )
         
-        if amount < max_withdraw_amount :
+        if amount > max_withdraw_amount :
             raise forms.ValidationError(
-                f'You Can withdraw at most {min_withdraw_amount}$'
+                f'You Can withdraw at most {max_withdraw_amount}$'
+            )
+        
+        if amount > balance: # amount = 5000, tar balance ache 200
+            raise forms.ValidationError(
+                f'You have {balance} $ in your account. '
+                'You can not withdraw more than your account balance'
             )
         
         return amount

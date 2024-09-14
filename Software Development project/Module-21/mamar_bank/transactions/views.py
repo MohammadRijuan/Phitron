@@ -78,7 +78,7 @@ class WhithdrawMoneyView(TransactionCreateMixin):
     form_class = WithdrawForm
     title = 'Withdraw'
 
-    def get_initaial(self,form):
+    def get_initial(self):
         initial = {'transaction_type' : WITHDRAWAL} #contants.py er Withdrawal er maddhome select kora
         return initial
     
@@ -86,11 +86,11 @@ class WhithdrawMoneyView(TransactionCreateMixin):
         amount = form.cleaned_data.get('amount')
         account = self.request.user.account
         account.balance -= amount
-
+    
         account.save(
             update_fields = ['balance']
         )
-        messages.success(f'you have successfully withdrawn your {amount}$')
+        messages.success(self.request,f'you have successfully withdrawn your {amount}$')
         return super().form_valid(form)
     
 
@@ -98,7 +98,7 @@ class LoanRequestView(TransactionCreateMixin):
     form_class = LoanRequestForm
     title = 'Request for loan'
 
-    def get_initaial(self,form):
+    def get_initial(self):
         initial = {'transaction_type' : LOAN} #contants.py er Withdrawal er maddhome select kora
         return initial
     
@@ -134,16 +134,16 @@ class TransactionReportView(LoginRequiredMixin,ListView):
             start_date  = datetime.strptime(start_date_str,"%Y-%M-%d").date()
             end_date  = datetime.strptime(start_date_str,"%Y-%M-%d").date()
             
-            queryset = queryset.filter(timestamp_date_gte = start_date, timestamp_date_lte =end_date)
+            queryset = queryset.filter(timestamp__date__gte = start_date, timestamp__date__lte =end_date)
             
             
-            self.balance = Transaction.objects.filter(timestamp_date_gte = start_date , timestamp_date_lte = end_date).aggregate(Sum('amount'))
+            self.balance = Transaction.objects.filter(timestamp__date__gte = start_date , timestamp__date__lte = end_date).aggregate(Sum('amount'))
             ['amount_sum']
 
         else:
             self.balance = self.request.user.account.balance
 
-        return queryset.distinct()
+        return queryset.distinct() #unique queryset hote hobe
     
     def get_context_data(self, **kwargs):  # amdr front end ke show korbe
         context = super().get_context_data(**kwargs)
@@ -169,16 +169,16 @@ class PayLoanView(LoginRequiredMixin,View):
                 loan.transaction_type = LOAN_PAID
                 loan.save()
 
-                return redirect()
+                return redirect('loan_list')
             else:
                 messages.success(self.request,f'loan amount is greater than available balance')
-                return redirect()
+                return redirect('loan_list')
              
     
 
 class LoanListView(LoginRequiredMixin,ListView):
     model = Transaction
-    template_name = ''
+    template_name = 'transactions/loan_request.html'
     context_object_name = 'loans' #ei name access korar jnno...kono kicu na dile Transaction or object  diye cl hoto
 
     def get_queryset(self):
