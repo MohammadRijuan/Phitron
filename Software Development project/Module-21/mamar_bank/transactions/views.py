@@ -17,11 +17,21 @@ from django.db.models import Sum
 from django.shortcuts import redirect,render,get_object_or_404
 from django.views import View
 from django.urls import reverse_lazy
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string #html ke string e convert korbe
+from django.core.mail import EmailMultiAlternatives
 
 
 
 
-# Create your views here.
+def send_transaction_email(user, amount, subject, template):
+        message = render_to_string(template, {
+            'user' : user,
+            'amount' : amount,
+        })
+        send_email = EmailMultiAlternatives(subject, '', to=[user.email])
+        send_email.attach_alternative(message,"text/html")
+        send_email.send()
 
 # ei view ke inherit kore deposit,withdraw,loan request korbo
 class TransactionCreateMixin(LoginRequiredMixin,CreateView):
@@ -70,27 +80,36 @@ class DepositMoneyView(TransactionCreateMixin):
             self.request,
             f'{"{:,.2f}".format(float(amount))}$ was deposited to your account successfully'
         )
-        # send_transaction_email(self.request.user, amount, "Deposite Message", "transactions/deposite_email.html")
+
+        send_transaction_email(self.request.user,amount,"Deposite Message","transactions/deposite_email.html")
         return super().form_valid(form)
 
 
-class WhithdrawMoneyView(TransactionCreateMixin):
+class WithdrawMoneyView(TransactionCreateMixin):
     form_class = WithdrawForm
-    title = 'Withdraw'
+    title = 'Withdraw Money'
 
     def get_initial(self):
-        initial = {'transaction_type' : WITHDRAWAL} #contants.py er Withdrawal er maddhome select kora
+        initial = {'transaction_type': WITHDRAWAL}
         return initial
-    
+
     def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
-        account = self.request.user.account
-        account.balance -= amount
-    
-        account.save(
-            update_fields = ['balance']
+
+        if(self.request.user.account.balance < 0):
+            messages.error("Bank has gone bankrupt")
+
+        self.request.user.account.balance -= form.cleaned_data.get('amount')
+        # balance = 300
+        # amount = 5000
+        self.request.user.account.save(update_fields=['balance'])
+
+        messages.success(
+            self.request,
+            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
         )
-        messages.success(self.request,f'you have successfully withdrawn your {amount}$')
+        
+        send_transaction_email(self.request.user, amount, "Withdrawal Message", "transactions/withdrawal_email.html")
         return super().form_valid(form)
     
 
@@ -110,6 +129,7 @@ class LoanRequestView(TransactionCreateMixin):
             return HttpResponse("You have crossed Your limits")
 
         messages.success(self.request,f'loan request for amount{amount}$')
+        send_transaction_email(self.request.user, amount, "Loan Request Message", "transactions/loan_email.html")
         return super().form_valid(form)
     
 

@@ -1,17 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="shortcut icon" href="https://em-content.zobj.net/source/microsoft/74/banknote-with-dollar-sign_1f4b5.png" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css">
-    <title>Mamar Bank</title>
-</head>
-<body>
-    {% include 'navbar.html' %}
-    {% block body %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Dummy Banking System" />
+        <title>
+            {% block head_title %}Banking System{% endblock %}
+        </title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
-    {% endblock %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-</body>
+        {% block head_extra %}{% endblock %}
+        <style>
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            
+        </style>
+    </head>
+    <body class="bg-indigo-600 min-h-screen flex flex-col justify-between">
+        {% include 'navbar.html' %}
+        <main class="flex-grow">
+            {% block body %}
+                <div class="lg:container lg:mx-auto" id="main">
+                    {% include 'messages.html' %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </main>
+        {% include 'footer.html' %}
+    </body>
+    
+
 </html>
